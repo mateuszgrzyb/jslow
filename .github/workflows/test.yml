@@ -2,6 +2,9 @@ on: [push]
 
 name: Test
 
+env:
+  CARGO_TERM_COLOR: always
+
 jobs:
   test:
     name: Rust project
@@ -15,3 +18,4 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: test
+          args: --verbose

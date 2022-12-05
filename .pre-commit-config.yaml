@@ -13,6 +13,8 @@ repos:
       rev: v1.0
       hooks:
         -   id: cargo-check
+            args: ["--verbose"]
         -   id: clippy
-            args: ["--fix", "--allow-dirty", "--allow-staged"]
+            args: ["--verbose"]
         -   id: fmt
+            args: ["--verbose", "--"]
