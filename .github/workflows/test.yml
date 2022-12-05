@@ -7,19 +7,11 @@ jobs:
     name: Rust project
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-      - uses: actions-rs/cargo@v1
-        with:
-          command: build
-      - uses: actions-rs/cargo@v1
-        with:
-          command: clippy
-      - uses: actions-rs/cargo@v1
-        with:
-          command: fmt
-      - uses: actions-rs/cargo@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+      - name: Run linters and check
+        uses: pre-commit/action@v3.0.0
+      - name: Run tests
+        uses: actions-rs/cargo@v1
         with:
           command: test
